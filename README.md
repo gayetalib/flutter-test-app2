@@ -1,6 +1,6 @@
 # flutter_test_app2
 
-A new Flutter project.
+Tutorial from David Silvera
 
 ## Getting Started
 

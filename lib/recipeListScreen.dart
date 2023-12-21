@@ -3,7 +3,7 @@ import 'package:flutter_test_app2/recetteModel.dart';
 
 class ReccipeListScreen extends StatelessWidget {
   //const ReccipeListScreen({super.key});
-  final List<RecetteModel> recipes = [
+  final List<RecetteModel> recipeList = [
     RecetteModel(
         "Pizza",
         "David Silvera",
@@ -35,14 +35,14 @@ class ReccipeListScreen extends StatelessWidget {
     RecetteModel(
         "Lait",
         "Amadou Silvera",
-        "images/lai.jpg",
+        "images/lait.jpg",
         "Je suis entrain de coder. Le codage est une recommandation qui me fait vraiment plaisir",
         false,
         17),
     RecetteModel(
         "Café",
         "Amadou Silvera",
-        "images/cafe.jpg",
+        "images/café.jpg",
         "Je suis entrain de coder. Le codage est une recommandation qui me fait vraiment plaisir",
         false,
         17)
@@ -61,34 +61,11 @@ class ReccipeListScreen extends StatelessWidget {
         ),
         //backgroundColor: Colors.grey,
       ),
-      body: ListView(
-        children: [
-          RecipeItemWidget(
-              recetteModel: RecetteModel(
-                  "Pizza",
-                  "David Silvera",
-                  "images/pizza.jpg",
-                  "Je suis entrain de coder. Le codage est une recommandation qui me fait vraiment plaisir",
-                  false,
-                  17)),
-          //Divider(),
-          RecipeItemWidget(
-              recetteModel: RecetteModel(
-                  "Burger",
-                  "Amadou Silvera",
-                  "images/burger.jpg",
-                  "Je suis entrain de coder. Le codage est une recommandation qui me fait vraiment plaisir",
-                  false,
-                  17))
-          // ListTile(
-          //   leading: Icon(Icons.fastfood),
-          //   title: Text('Burger Maison'),
-          // ),
-          // ListTile(
-          //   leading: Icon(Icons.fastfood),
-          //   title: Text('Pizza Maison'),
-          // )
-        ],
+      body: ListView.builder(
+        itemCount: recipeList.length,
+        itemBuilder: (context, index) {
+          return RecipeItemWidget(recetteModel: recipeList[index]);
+        },
       ),
     );
   }
