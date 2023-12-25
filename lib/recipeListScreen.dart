@@ -94,11 +94,7 @@ class RecipeItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) =>
-                    RecetteScreen(recetteModel: recetteModel)));
+        Navigator.pushNamed(context, '/recipe', arguments: recetteModel);
       },
       child: Card(
         margin: EdgeInsets.all(8),
