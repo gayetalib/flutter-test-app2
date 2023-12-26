@@ -82,6 +82,12 @@ class ReccipeListScreen extends StatelessWidget {
               child: RecipeItemWidget(recetteModel: recipeList[index]));
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/new');
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }

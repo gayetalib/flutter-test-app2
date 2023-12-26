@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app2/RecipeForm.dart';
 import 'package:flutter_test_app2/recetteModel.dart';
 import 'package:flutter_test_app2/recipeListScreen.dart';
-import 'package:transparent_image/transparent_image.dart';
 import 'package:flutter_test_app2/recette.dart';
 
 void main() {
@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: '/',
+      initialRoute: '/list',
       onGenerateRoute: (settings) => RouteGenerator.generateRoute(settings),
-      home: ReccipeListScreen(),
+      //home: ReccipeListScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -30,12 +30,14 @@ class MyApp extends StatelessWidget {
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case '/':
-        return MaterialPageRoute(builder: (context) => ReccipeListScreen());
+      case '/new':
+        return MaterialPageRoute(builder: (context) => RecipeForm());
       case '/recipe':
         return MaterialPageRoute(
             builder: (context) => RecetteScreen(
                 recetteModel: settings.arguments as RecetteModel));
+      case '/list':
+        return MaterialPageRoute(builder: (context) => ReccipeListScreen());
       default:
         return MaterialPageRoute(
             builder: (context) => Scaffold(
